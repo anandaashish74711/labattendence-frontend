@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://10.2216.208:5000/' }), // Your base URL
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://10.2.216.208:5000/' }), // Your base URL
   endpoints: (builder) => ({
     getData: builder.query<any, void>({
       query: () => '/attendance',
