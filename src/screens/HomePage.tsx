@@ -1,9 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button"; // Assuming you're using ShadCN UI
-import { CalendarCheck, CalendarRange } from "lucide-react"; // Icons for better UX
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/features/authslice"; // Import the logout action
+import { Button } from "@/components/ui/button";
+import { CalendarCheck, CalendarRange, LogOut } from "lucide-react";
 
 const HomePage: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-6">
       {/* Card Container */}
@@ -30,6 +40,17 @@ const HomePage: React.FC = () => {
             </Button>
           </Link>
         </div>
+
+        {/* Separator */}
+        <hr className="my-6 border-gray-300" />
+
+        {/* Logout Button */}
+        <Button
+          onClick={handleLogout}
+          className="flex items-center gap-2 px-6 py-3 text-lg bg-red-500 hover:bg-red-600 text-white rounded-lg shadow transition-all duration-300 w-full"
+        >
+          <LogOut size={20} /> Logout
+        </Button>
       </div>
 
       {/* Footer */}

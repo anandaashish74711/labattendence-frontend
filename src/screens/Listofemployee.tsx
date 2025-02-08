@@ -79,46 +79,47 @@ const EmployeeAttendance = () => {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="w-8 p-4">
-                <input type="checkbox" className="rounded border-gray-300" />
-              </th>
-              <th className="p-4 pl-10 text-left text-sm font-medium text-gray-600">Emp. ID</th>
-              <th className="p-4 pl-60 text-left text-sm font-medium text-gray-600">Employee Name</th>
+     <table className="w-full">
+  <thead className="bg-gray-50">
+    <tr>
+      <th className="w-8 p-4 text-left">
+        <input type="checkbox" className="rounded border-gray-300" />
+      </th>
+      <th className="p-4 text-left text-sm font-medium text-gray-600">Emp. ID</th>
+      <th className="p-4 text-left text-sm font-medium text-gray-600">Employee Name</th>
               <th className="p-4 text-left text-sm font-medium text-gray-600">Clock-in & Out</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {employees?.records?.length > 0 ? (
-              employees.records.map((employee: any) => (
-                <tr key={employee.id} className="hover:bg-gray-50">
-                  <td className="p-4">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                  </td>
-                  <td className="p-4 text-sm text-gray-900">{employee.userid}</td>
-                  <td className="p-4    text-sm text-gray-900">{employee.username}</td>
-                  <td className="p-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-red-500">{formatTime(employee.checkin)}</span>
-                      <span className="text-sm text-gray-400">—</span>
-                      <span className="text-sm text-gray-400">{employee.duration}</span>
-                      <span className="text-sm text-gray-400">—</span>
-                      <span className="text-sm text-green-500">{formatTime(employee.checkout)}</span>
-                    </div>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={4} className="p-6 text-center text-gray-500">
-                  No attendance records found for the selected date.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              
+    </tr>
+  </thead>
+  <tbody className="divide-y divide-gray-100">
+    {employees?.records?.length > 0 ? (
+      employees.records.map((employee: any) => (
+        <tr key={employee.id} className="hover:bg-gray-50">
+          <td className="p-4">
+            <input type="checkbox" className="rounded border-gray-300" />
+          </td>
+          <td className="p-4 text-sm text-gray-900">{employee.userid}</td>
+          <td className="p-4 text-sm text-gray-900">{employee.username}</td>
+          <td className="p-4 text-sm text-gray-900">
+            <div className="flex justify-between items-center w-full">
+              <span className="text-sm text-red-500">{formatTime(employee.checkin)}</span>
+              <span className="text-sm text-gray-400">{employee.duration || '—'}</span>
+              <span className="text-sm text-green-500">{formatTime(employee.checkout)}</span>
+             
+            </div>
+          </td>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <td colSpan={4} className="p-6 text-center text-gray-500">
+          No attendance records found for the selected date.
+        </td>
+      </tr>
+    )}
+  </tbody>
+</table>
+
       </div>
     </div>
   );
