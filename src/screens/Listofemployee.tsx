@@ -80,17 +80,19 @@ const EmployeeAttendance = () => {
       {/* Table */}
       <div className="overflow-x-auto">
      <table className="w-full">
-  <thead className="bg-gray-50">
-    <tr>
-      <th className="w-8 p-4 text-left">
-        <input type="checkbox" className="rounded border-gray-300" />
-      </th>
-      <th className="p-4 text-left text-sm font-medium text-gray-600">Emp. ID</th>
-      <th className="p-4 text-left text-sm font-medium text-gray-600">Employee Name</th>
-              <th className="p-4 text-left text-sm font-medium text-gray-600">Clock-in & Out</th>
-              
-    </tr>
-  </thead>
+<thead className="bg-gray-50">
+  <tr className="text-left">
+    <th className="w-8 p-4">
+      <input type="checkbox" className="rounded border-gray-300" />
+    </th>
+    <th className="p-4 text-sm font-medium text-gray-600">Emp. ID</th>
+    <th className="p-4 text-sm font-medium text-gray-600">Employee Name</th>
+    <th className="p-4 text-sm font-medium text-gray-600">Clock-in</th>
+    <th className="p-4 text-sm font-medium text-gray-600">Duration</th>
+    <th className="p-4 text-sm font-medium text-gray-600">Clock-out</th>
+  </tr>
+</thead>
+
   <tbody className="divide-y divide-gray-100">
     {employees?.records?.length > 0 ? (
       employees.records.map((employee: any) => (
@@ -103,11 +105,18 @@ const EmployeeAttendance = () => {
           <td className="p-4 text-sm text-gray-900">
             <div className="flex justify-between items-center w-full">
               <span className="text-sm text-red-500">{formatTime(employee.checkin)}</span>
-              <span className="text-sm text-gray-400">{employee.duration || '—'}</span>
-              <span className="text-sm text-green-500">{formatTime(employee.checkout)}</span>
+              
+                   
              
             </div>
           </td>
+          <td className="p-4 text-sm text-gray-900">
+              <span className="text-sm text-gray-400">{employee.duration || '—'}</span>
+            
+          </td>
+               <td className="p-4 text-sm text-gray-900">
+            <span className="text-sm text-green-500"> {employee.checkout ? formatTime(employee.checkout) : '—'}</span>
+            </td>
         </tr>
       ))
     ) : (
