@@ -67,8 +67,7 @@ const EmployeeAttendancerange = () => {
         <div className="relative">
           <select className="appearance-none bg-gray-50 rounded-md px-4 py-2 pr-8 border border-gray-200">
             <option>All</option>
-            <option>Present</option>
-            <option>Absent</option>
+           
           </select>
         </div>
         
@@ -112,10 +111,9 @@ const EmployeeAttendancerange = () => {
                 </th>
                 <th className="p-4 text-left text-sm font-medium text-gray-600">Emp. ID</th>
                 <th className="p-4 text-left text-sm font-medium text-gray-600">Employee Name</th>
-                <th className="p-4 text-left text-sm font-medium text-gray-600">Days Present</th>
-                <th className="p-4 text-left text-sm font-medium text-gray-600">Days Absent</th>
+              
                 <th className="p-4 text-left text-sm font-medium text-gray-600">Total Hours</th>
-                <th className="p-4 text-left text-sm font-medium text-gray-600">Avg. Hours/Day</th>
+              
                 <th className="p-4 text-left text-sm font-medium text-gray-600">Clock-in & Out</th>
               </tr>
             </thead>
@@ -128,10 +126,9 @@ const EmployeeAttendancerange = () => {
                     </td>
                     <td className="p-4 text-sm text-gray-900">{employee.userid}</td>
                     <td className="p-4 text-sm text-gray-900">{employee.username}</td>
-                    <td className="p-4 text-sm text-gray-900">{employee.days_present}</td>
-                    <td className="p-4 text-sm text-gray-900">{employee.days_absent}</td>
+                  
                     <td className="p-4 text-sm text-gray-900">{employee.total_hours}</td>
-                    <td className="p-4 text-sm text-gray-900">{employee.average_hours_per_day}</td>
+                  
                     <td className="p-4">
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-red-500">{formatDate(employee.first_checkin)}</span>

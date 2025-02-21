@@ -89,7 +89,8 @@ const EmployeeAttendance = () => {
     <th className="p-4 text-sm font-medium text-gray-600">Employee Name</th>
     <th className="p-4 text-sm font-medium text-gray-600">Clock-in</th>
     <th className="p-4 text-sm font-medium text-gray-600">Duration</th>
-    <th className="p-4 text-sm font-medium text-gray-600">Clock-out</th>
+              <th className="p-4 text-sm font-medium text-gray-600">Clock-out</th>
+              <th className="p-4 text-sm font-medium text-gray-600">overtime</th>
   </tr>
 </thead>
 
@@ -116,7 +117,11 @@ const EmployeeAttendance = () => {
           </td>
                <td className="p-4 text-sm text-gray-900">
             <span className="text-sm text-green-500"> {employee.checkout ? formatTime(employee.checkout) : '—'}</span>
-            </td>
+          </td>
+            <td className="p-4 text-sm text-gray-900">
+            <span className="text-sm text-green-500"> {employee.overtime ? formatTime(employee.overtime) : '—'}</span>
+          </td>
+          
         </tr>
       ))
     ) : (
